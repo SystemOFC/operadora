@@ -1,82 +1,403 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="en" >
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>OPERADORA</title>
-    <style> 
-body {
+  <meta charset="UTF-8">
+  <title>Guardian</title>
+  <link rel="stylesheet" href="./style.css">
+<style>
+	@import url("https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css");
+	
+        * {
+            margin: 0;
+            padding: 0;
 
-background-image: url("https://i.postimg.cc/zv6vv3CH/0eeb88f0-91e9-4835-bcdd-53df39ad0030.jpg");
-background-size: cover;
-}
+            box-sizing: border-box;
 
-.max-width {
-width: 100%;
-max-width: 800px;
-margin: 0 auto;
-background-color: #fff;
-}
+            font-family: 'Roboto', sans-serif;
+        }
 
-    	body {
-  color: #ffffff;
+        body {
+            height: 100vh;
+
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+
+            background-color: #0F0F0F;
+        }
+
+
+        .login-box {
+        	display: flex;
+            position: relative;
+            flex-direction: column;
+            width: 100%;
+            height: auto;
+            left: auto;
+            right: auto;
+            padding: 101px;
+            text-align: center;
+            color: #252B37;
+            background-color: #191d2a;
+            animation: textColor 5s ease infinite;
+            border-radius: 40px;
+        }
+        .login-box:after {
+            position: absolute;
+            content: "";
+            top: 5vw;
+            left: 0;
+            right: 0;
+            z-index: -1;
+            height: 100%;
+            width: 100%;
+            margin: 0 auto;
+            transform: scale(0.85);
+            -webkit-filter: blur(30px);
+            -moz-filter: blur(30px);
+            -ms-filter: blur(30px);
+            filter: blur(30px);
+            background: linear-gradient(270deg, #0fffc1, #7e0fff);
+            background-size: 200% 200%;
+            animation: animateGlow 1s ease infinite;
+        }
+        @keyframes animateGlow {
+            0% {
+                background-position: 0% 50%;
+            }
+            50% {
+                background-position: 100% 50%;
+            }
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+
+        @keyframes textColor {
+            0% {
+                color: #7e0fff;
+            }
+            50% {
+                color: #0fffc1;
+            }
+            100% {
+                color: #7e0fff;
+            }
+        }
+
+        @keyframes buttonGlow {
+            0% {
+                /* background: #7e0fff; */
+                text-shadow: 0px 0px 5px #7e0fff;
+                color: #7e0fff;
+            }
+            50% {
+                /* background: #0fffc1; */
+
+                text-shadow: 0px 0px 5px #0fffc1;
+                color: #0fffc1;
+            }
+            100% {
+                /* background: #7e0fff; */
+                text-shadow: 0px 0px 5px #7e0fff;
+                color: #7e0fff;
+            }
+        }
+
+        @keyframes gradient {
+            0% {
+                background-position: 0 0;
+            }
+            100% {
+                background-position: 100% 0;
+            }
+        }
+
+        .input-box {
+            position: relative;
+            display: flex;
+            flex-direction: row;
+            width: 100%;
+            max-width: 400px;
+            right: auto;
+            margin-top: 0px;
+            padding: 7px;
+            border-radius: 1px;
+            padding: 0px;
+            background: #1f2433;
+        }
+        .input-box:after {
+            content: "";
+            position: absolute;
+            left: 0px;
+            right: 0px;
+            top: 0px;
+            z-index: 999;
+            height: 1.5px;
+            border-radius: 55px;
+            border-bottom-left-radius: 30px;
+            border-bottom-right-radius: 30px;
+            background-position: 0% 0%;
+            background: linear-gradient(
+            to right,
+            #b294ff,
+            #57e6e6,
+            #feffb8,
+            #57e6e6,
+            #b294ff,
+            #57e6e6
+            );
+            background-size: 500% auto;
+            animation: gradient 2s linear infinite;
+        }
+        
+        div.button-area {
+            width: 90%;
+            height: auto;
+            margin-left:auto;
+            margin-right:auto;
+            margin-top: 13px;
+            margin-bottom: 13px;
+border-radius: 30px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        div.button-area button {
+            width: auto;
+            height: 35px;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            padding: 15px;
+
+            border: 0;
+            border-radius: 15px;
+
+            color: #ffffff;
+            font-weight: 300;
+
+            background-color: #1a202e;
+
+            font-size: 1rem;
+        }
+        
+        div.buttons-area-all {
+            width: 100%;
+            height: auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-top: 10px;
+        }
+        
+
+        div.buttons-area-all button {
+            padding: 15px;
+            display: flex;
+            justify-items: center;
+            align-items: center;
+            font-size: 1rem;
+        }
+        
+        .input-box input {
+            flex-grow: 1;
+            color: #bfd2ff;
+            vertical-align: middle;
+            background: none;
+            width: 100%;
+            font-size: 12px;
+            border: none;
+            padding: 10px;
+            outline: none;
+        }
+
+        .input-box input::-webkit-input-placeholder {
+            color: #7881a1;
+        }
+
+        
+        .label{
+            font-size: 14px;
+            padding: 0px;
+            margin: 0px;
+            right: auto;
+            margin-top: 20px;
+            padding: 0px;
+            text-align: left;
+            
+        }
+
+        .login-box input[type=date]::-webkit-calendar-picker-indicator {
+            filter: invert(1);
+        }
+
+        .login-box input[type=password]{
+            filter: invert(1);
+            color: black;
+            
+        }
+
+        .login-box input[type=button]{
+            width: 90%;
+            animation: textColor 5s ease infinite;
+            background: none;
+            outline: none;
+            border: none;
+            padding: 5px;
+            margin: 10px 10px 0px 10px;
+        }
+
+        .login-box input[type=button]:hover{
+            cursor: pointer;
+            margin: 10px 10px 0px 10px;
+            animation: buttonGlow 5s ease infinite;
+        }
+
+        .list__item {
+            position: relative;
+            margin-left: 25px;
+        }
+        
+
+        .radio-btn {
+            position: absolute;
+            opacity: 0;
+            visibility: hidden;
+            color: transparent;
+        }
+        .radio-btn:checked + .label_radio {
+            animation: textColor 5s ease infinite;  
+        }
+
+        .radio-btn::before {
+            margin-right: 10px;
+        }
+        
+
+        .label_radio {
+            display: flex;
+            align-items: center;
+            padding: 5px 0;
+            color: rgba(255, 255, 255, 0.5);
+            font-size: 13px;
+            cursor: pointer;
+        }
+
+        .label_radio::before {
+            display: inline-block;
+            content: ">";
+            margin-right: 5px;
+        }
+          .login-input-icon {
+    position: relative;
+    align-self: flex-end;
+    top: 1px;
+    left: auto;
+    color: #633fb3;
+    display: block;
+  }
   
-}
-body {
- background-color: #cccccc;
-}
-
-  .base {
-  text-align: center;
-  border: solid;
-}
-
-
-.bnt {
-  font-size:13px;
-  font-family:Arial;
-  width:57px;
-  height:21px;
-  border-width:1px;
-  color:#fff;
-  border-color:rgba(0, 0, 0, 1);
-  font-weight:bold;
-  border-top-left-radius:32px;
-  border-top-right-radius:32px;
-  border-bottom-left-radius:32px;
-  border-bottom-right-radius:32px;
-  text-shadow: 1px 1px 0px rgba(0, 0, 0, 1);
-  background:rgba(48, 126, 195, 1);
-}
-
-.bnt:hover {
-  background: rgba(74, 144, 226, 1)
-}
-              
-
-    </style>
+  .config-input-icon {
+    position: relative;
+    align-self: flex-end;
+    top: auto;
+    left: 2px;
+    color: #633fb3;
+    display: block;
+  }
+</style>
 </head>
 <body>
-<h3 class="base" >
-    VERIFICAR VALIDADE
-    <h4 class="base">
-        <br>
-        VIVO
-        <br>      
-        <div><button class="bnt" onclick="window.location.href='https://portalrecarga.vivo.com.br/recarga/home/'">Aperte</button>
-            <br>
-            <br>
-            TIM
-            <br>
-            <div><button class="bnt" onclick="window.location.href='https://www.tim.com.br/para-voce/recarga/recarga-express'">Aperte</button>
-                <br>
-            <br>
-            CLARO
-            <br>
-            <div><button class="bnt" onclick="window.location.href='http://recarga.claro.com.br/no-credit'">Aperte</button>
-<br><br>
-<div>
-</div>
+<!-- partial:index.partial.html -->
+<form action="" method="post">
+  
+        <div class="login-box">
+            <h4>RENOVAÇÃO EM BREVE<br><br></h4>
+            
+            
+            
+        
+               
+    </form>
+    
+<script>
+        const config = document.querySelector('#config')
+        const inputConfig = document.querySelector('#inputConfig')
+        const inputUser = document.querySelector('#user')
+        const inputPassword = document.querySelector('#password')
+        const sync = document.querySelector('#sync')
+        const logger = document.querySelector('#logger')
+        const web = document.querySelector('#web')
+
+        const startStopVpn = document.querySelector('#start-stop')
+
+        const stateStatus = document.querySelector('#state')
+
+        config.addEventListener('click', (e) => {
+            ExecuteDialogConfig.execute()
+        })
+
+        inputUser.addEventListener('input', (e) => {
+            Username.set(e.target.value)
+        })
+
+        inputPassword.addEventListener('input', (e) => {
+            Password.set(e.target.value)
+        })
+
+        sync.addEventListener('click', (e) => {
+            Android.startAppUpdate()
+        })
+
+        logger.addEventListener('click', (e) => {
+            Android.showLogger()
+        })
+
+web.addEventListener('click', (e) => {
+            Android.startWebViewActivity()
+        })
+
+        startStopVpn.addEventListener('click', (e) => {
+            if (GetVpnState.execute() != 'DISCONNECTED') {
+                ExecuteVpnStop.execute()
+            } else {
+                ExecuteVpnStart.execute()
+            }
+        })
+
+        const onConfigClick = () => {
+            const data = JSON.parse(window?.Android?.getConfig() || `{ "auth": {} }`)
+
+            inputConfig.value = data.name ?? 'CONFIGURAÇÃO'
+
+            inputUser.parentElement.style.display = !data.auth.username ? 'flex' : 'none';
+            inputPassword.parentElement.style.display = !data.auth.password ? 'flex' : 'none';
+        }
+
+        const setVpnState = (state) => {
+            stateStatus.innerHTML = state
+
+            startStopVpn.innerHTML = state != 'DISCONNECTED' ? 'PARAR' : 'CONECTAR'
+
+            document.querySelectorAll('.input-auth').forEach(item => {
+                if (state != 'DISCONNECTED') {
+                    item.children[1].setAttribute('readonly', 'true');
+                } else {
+                    item.children[1].removeAttribute('readonly');
+                } enati
+            });
+        }
+
+        setVpnState(window?.GetVpnState?.execute())
+        onConfigClick()
+
+        inputUser.value = Username.get() ?? ''
+        inputPassword.value = Password.get() ?? ''
+    </script>
+  
 </body>
 </html>
